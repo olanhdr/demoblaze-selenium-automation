@@ -3,7 +3,7 @@ import pytest
 VALID_CREDENTIALS = {
     "username": "redgery25",
     "password": "Testing123",
-    "expected": "Welcome redgery25"
+    "expected_message": "Welcome redgery25"
 }
 
 INVALID_CREDENTIALS = [
@@ -12,26 +12,26 @@ INVALID_CREDENTIALS = [
             "case": "Wrong password",
             "username": "redgery25",
             "password": "drowssap_dilavni",
-            "expected": "Wrong password."
+            "expected_message": "Wrong password."
         },
-        id="wrong_password"
+        id = "wrong_password"
     ),
     pytest.param(
         {
             "case": "Empty username & password",
             "username": "",
             "password": "",
-            "expected": "Please fill out Username and Password."
+            "expected_message": "Please fill out Username and Password."
         },
-        id="empty_username_and_password"
+        id = "empty_username_and_password"
     ),
     pytest.param(
         {
             "case": "User doesn't exist",
             "username": "resu_dilavni",
             "password": "drowssap_dilavni",
-            "expected": "User does not exist."
+            "expected_message": "User does not exist."
         },
-        id="user_does_not_exist"
+        id = "user_does_not_exist"
     )
 ]

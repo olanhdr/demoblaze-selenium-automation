@@ -37,3 +37,11 @@ class DataGenerator:
     @staticmethod
     def year():
         return str(datetime.now().year)
+    
+    @staticmethod
+    def username():
+        return fake.user_name()
+    
+    @staticmethod
+    def password():
+        return fake.password()

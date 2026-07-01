@@ -18,8 +18,11 @@ class LoginPage(BasePage):
         self.open_url(Config.BASE_URL)
     
     @allure.step("Click login menu")
-    def click_login_menu_button(self):
+    def click_login_menu(self):
         self.click(*self.LOGIN_MENU_BUTTON)
+        
+    @allure.step("Verify login popup modal")
+    def get_login_popup_screen(self):
         return self.get_text(*self.LOGIN_MODAL_TITLE)
 
     @allure.step("Input login form")
@@ -36,7 +39,7 @@ class LoginPage(BasePage):
         return self.get_text(*self.LOGIN_SUCCESS_MESSAGE)
     
     @allure.step("Verify login is failed")
-    def get_login_alert_message(self):
+    def get_login_error_message(self):
         alert = self.wait_alert()
         return alert.text
 

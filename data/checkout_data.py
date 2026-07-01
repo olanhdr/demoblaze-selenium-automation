@@ -1,11 +1,13 @@
-from utils.data_generator import DataGenerator as Data
+from utils.data_generator import DataGenerator
+
+dummy_data = DataGenerator
 
 CHECKOUT_DATA = {
-            "name": Data.full_name(),
-            "country": Data.country(),
-            "city": Data.city(),
-            "card_number": Data.card_number(),
-            "month": Data.month(),
-            "year": Data.year(),
-            "expected": "Thank you for your purchase!"
+            "name": dummy_data.full_name(),
+            "country": dummy_data.country(),
+            "city": dummy_data.city(),
+            "card_number": dummy_data.card_number(),
+            "month": dummy_data.month(),
+            "year": dummy_data.year(),
+            "expected_message": "Thank you for your purchase!"
         }

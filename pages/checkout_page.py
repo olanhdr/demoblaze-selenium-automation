@@ -21,14 +21,13 @@ class CheckoutPage(BasePage):
         self.click(*self.ORDER_BUTTON)
 
     @allure.step("Input order")
-    def input_order(self, name, country, city, card_number, month, year):
+    def input_order_detail(self, name, country, city, card_number, month, year):
         self.type(*self.NAME_INPUT,text=name)
         self.type(*self.COUNTRY_INPUT,text=country)
         self.type(*self.CITY_INPUT,text=city)
         self.type(*self.CARD_INPUT,text=card_number)
         self.type(*self.MONTH_INPUT,text=month)
         self.type(*self.YEAR_INPUT,text=year)
-        self.click(*self.PURCHASE_BUTTON)
         
     @allure.step("Checkout order")
     def checkout_order(self):
@@ -41,4 +40,3 @@ class CheckoutPage(BasePage):
     @allure.step("Close success popup")
     def close_success_popup(self):
         self.click(*self.OK_BUTTON)
-    
