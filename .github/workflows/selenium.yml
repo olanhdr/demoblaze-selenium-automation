@@ -11,6 +11,10 @@ on:
 
   workflow_dispatch:
 
+  schedule:
+    #simulate run smoke tests everyday
+    - cron: "40 11 * * *"
+
 jobs:
 
   ui-test:
