@@ -1,7 +1,9 @@
+import pytest
 import allure
 from pages.checkout_page import CheckoutPage
 from testdata.billing import BILLING_INFO
 
+@pytest.mark.smoke
 @allure.title("Verify user can checkout successfully")
 def test_checkout_success(add_product_to_cart):
     checkout_page = CheckoutPage(add_product_to_cart)

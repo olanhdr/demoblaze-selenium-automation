@@ -1,4 +1,4 @@
-name: Selenium - Ecommerce Web Automation
+name: Ecommerce Web Automation
 
 on:
   push:
@@ -13,7 +13,7 @@ on:
 
   schedule:
     #simulate run smoke tests everyday
-    - cron: "40 11 * * *"
+    - cron: "30 11 * * *"
 
 jobs:
 
@@ -44,17 +44,20 @@ jobs:
 
       - name: Execute Selenium Tests
         run: |
-          pytest \
-          -m "not skip_ci" \
-          --alluredir=reports/allure-results
+          echo "Triggered by: ${{ github.event_name }}"
           
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            echo "Running Smoke Test..."
+            pytest -m "smoke" --alluredir=reports/allure-results
+          else
+            echo "Running Test..."
+            pytest -m "not skip_ci" --alluredir=reports/allure-results
+          fi
+                  
       - name: Upload Allure Results
         if: always()
-
         uses: actions/upload-artifact@v4
 
         with:
-
           name: allure-results
-
           path: reports/allure-results

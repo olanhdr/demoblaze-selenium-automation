@@ -3,8 +3,8 @@ import allure
 from pages.product_page import ProductPage
 from testdata.products import PRODUCTS_DATA
 
-@allure.title("Verify phone details are displayed correctly")
 @pytest.mark.skip_ci
+@allure.title("Verify phone details are displayed correctly")
 def test_phone_detail(browser):
     product_page = ProductPage(browser)
     phone = PRODUCTS_DATA["phone"]

@@ -3,6 +3,7 @@ import allure
 from pages.login_page import LoginPage
 from testdata.credentials import VALID_CREDENTIALS, INVALID_CREDENTIALS
 
+@pytest.mark.smoke
 @allure.title("Verify user can login with valid credentials")
 def test_login_success(browser):  
     login_page = LoginPage(browser)
